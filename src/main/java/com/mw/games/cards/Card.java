@@ -10,7 +10,7 @@ public class Card implements Comparable<Card> {
 	
 	private Rank rank;
 	private Suit suit;
-	
+
 	public static Map<Suit, Integer> defaultSuitOrder;
 	static {
 	    defaultSuitOrder = new HashMap<Suit, Integer>();

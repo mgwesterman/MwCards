@@ -1,6 +1,7 @@
 package com.mw.games.cards;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Shuffler 
@@ -36,14 +37,7 @@ public class Shuffler
 	}
 	public void shuffle()
 	{
-		int n = cards.size();
-        for (int i = 0; i < n; i++) 
-        {
-            int r = i + (int) (Math.random() * (n-i));
-            Card temp = cards.get(r);
-            cards.set(r, cards.get(i));
-            cards.set(i,temp);
-        }
+		Collections.shuffle(cards);
         placeInTheShoe = 0;
 	}
 	

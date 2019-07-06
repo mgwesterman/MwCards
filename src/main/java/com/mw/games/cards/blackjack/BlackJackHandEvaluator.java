@@ -110,7 +110,7 @@ public class BlackJackHandEvaluator extends HandEvaluator {
 		if (playerHand.cardCount() == 2)
 		{
 			HandAction[] handActions = null;
-			if (playerHand.isMatchingValue())
+			if (isMatchingValue(playerHand))
 			{
 				handActions = splitActions.get(playerHandValue);
 				HandAction ha = handActions[upCardValue];
@@ -179,6 +179,20 @@ public class BlackJackHandEvaluator extends HandEvaluator {
 			return HandResult.WIN;
 		}
 		return super.determineResult(playerHand,dealerHand);
+	}
+
+	public boolean isMatchingValue(Hand aHand)
+	{
+        int value0 = aHand.getCard(0).getRank().getBlackJackRank();
+		int i = 1;
+		while (i < aHand.cardCount())
+		{
+			int value1 = aHand.getCard(i).getRank().getBlackJackRank();
+			if (value0 != value1)
+				return false;
+			i++;
+		}
+		return true;
 	}
 
 	public boolean isBlackJack(Hand aHand)

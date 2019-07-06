@@ -84,13 +84,6 @@ public abstract class Hand {
 	
 	abstract public int getValue();
 	
-	public boolean isMatching()
-	{
-		return cards.get(0).isMatch(cards.get(1));
-	}
-	
-	public abstract boolean isMatchingValue();
-	
 	public boolean isPair()
 	{
 		return cards.get(0).isPair(cards.get(1));
