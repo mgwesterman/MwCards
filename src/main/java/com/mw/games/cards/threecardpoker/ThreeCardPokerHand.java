@@ -29,9 +29,11 @@ public class ThreeCardPokerHand extends Hand {
         ORDERED_RANKS.add(HandDescription.TRIPS);
         ORDERED_RANKS.add(HandDescription.STRAIGHT_FLUSH);
     }
-    public void addCard(Card aCard)
+    public ThreeCardPokerHand(Card c1, Card c2, Card c3)
     {
-        cards.add(aCard);
+        cards.add(c1);
+        cards.add(c2);
+        cards.add(c3);
     }
     
     public int numberOfCards()
@@ -47,6 +49,7 @@ public class ThreeCardPokerHand extends Hand {
     private void sort()
     {
     	Collections.sort(cards);
+    	Collections.reverse(cards);
     }
             
     public boolean isStraight()
@@ -95,8 +98,8 @@ public class ThreeCardPokerHand extends Hand {
 	public int getValue()
 	{
 		HandDescription aRank = rank();
-	    int intA = ORDERED_RANKS.indexOf(aRank);
-	     
+	    int intA = ORDERED_RANKS.indexOf(aRank) + 1;
+	    sort(); 
 	    StringBuffer sb = new StringBuffer();
 	    // start the string with the value of the hand, then put the values of the cards.
 	    // That should result in being able to successfully compare any two complete hands.
